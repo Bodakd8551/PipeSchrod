@@ -115,6 +115,55 @@ result_coulomb  = environment >> Coulomb(1.0) >> Solve("FGH")
 
 ---
 
+## 🪐 Potential Models
+
+PipeSchrod comes with several built-in physical potentials, each implemented as an independent pipe step. Here is how to configure and use them:
+
+### `Cornell`
+Creates a Cornell potential, widely used in quarkonium models: $V(r) = - \frac{4\alpha}{3r} + br$
+```python
+# Create a charmonium system using the Cornell potential
+PipeSchrod(m1=1.44) >> Cornell(alpha=0.5317, b=0.1497, pot_type=1)
+```
+- **`alpha`** *(float)*: Strong coupling constant.
+- **`b`** *(float)*: String tension parameter.
+- **`pot_type`** *(int)*: Defines variants of the Coulomb and linear term combinations.
+
+### `Harmonic`
+Applies a generic Harmonic Oscillator potential: $V(r) = \frac{1}{2} m \omega^2 r^2$
+```python
+PipeSchrod(m1=1.0) >> Harmonic(omega=1.0)
+```
+- **`omega`** *(float)*: Angular frequency of the oscillator.
+
+### `Coulomb`
+Applies a strictly Coulombic potential target (Hydrogen-like): $V(r) = - \frac{Z}{r}$
+```python
+# Hydrogen-like system
+PipeSchrod(m1=0.511) >> Coulomb(Z=1.0)
+```
+- **`Z`** *(float)*: Effective atomic number or generic charge coefficient.
+
+### `WoodsSaxon`
+A standard phenomenological model for nucleons: $V(r) = \frac{-V_0}{1 + \exp((r - R)/a)}$
+```python
+PipeSchrod(m1=938.0) >> WoodsSaxon(V0=50.0, R=1.2, a=0.65)
+```
+- **`V0`** *(float)*: Well depth.
+- **`R`** *(float)*: Nuclear radius.
+- **`a`** *(float)*: Surface thickness modifier.
+
+### `Morse`
+An accurate model for diatomic molecular vibrations: $V(r) = D_e (1 - e^{-a(r-r_e)})^2$
+```python
+PipeSchrod(m1=1.0) >> Morse(De=1.0, re=1.0, a=1.0)
+```
+- **`De`** *(float)*: Well depth (dissociation energy).
+- **`re`** *(float)*: Equilibrium bond length.
+- **`a`** *(float)*: Potential well width control.
+
+---
+
 ## 📖 Related Projects
 
 PipeSchrod is part of the **Pipe** ecosystem emphasizing readable, pipeline-centric processing:

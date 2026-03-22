@@ -1,168 +1,138 @@
-# PipeSchrod
+# PipeSchrod ⚛️
 
-**Pipe-chained quantum bound-state solver** for the Schrödinger & Salpeter equations.
+**Pipe Your Quantum Mechanics Naturally**
 
-*Dr. Yasser Mustafa — Theoretical Nuclear & Particle Physics*
+[![PyPI version](https://img.shields.io/pypi/v/pipeschrod.svg)](https://pypi.org/project/pipeschrod/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Part of the **Pipe*** family: PipeFrame · PipePlotly · PipeScrape · **PipeSchrod**
-
----
-
-## The >> Operator
-
-PipeSchrod uses the `>>` operator to chain every step of a quantum calculation
-into a single readable expression:
+An intuitive, readable, and modern Python library for defining, solving, and visualizing 1D Schrödinger and Salpeter equations. Designed for nuclear physicists, particle physicists, and quantum mechanics students, PipeSchrod implements a clear pipeline syntax (`>>`) inspired by standard data workflows but applied to rigorous physical systems.
 
 ```python
 from pipeschrod import PipeSchrod
-from pipeschrod.steps import Cornell, Grid, Solve, Compare, Plot, Export
+from pipeschrod.steps import Cornell, Grid, Solve, Plot, Export
 
-result = (
-    PipeSchrod(m1=1.4495, m2=1.4495)   # system: charm quark masses
-    >> Cornell(alpha=0.5317, b=0.1497)  # potential: Cornell funnel
-    >> Grid(N=200, rmax=20.0)           # grid: 200 points, 0–20 GeV⁻¹
-    >> Solve("FGH")                     # solver: Fourier Grid Hamiltonian
-    >> Plot("dashboard")                # figure: all-in-one 4-panel
-    >> Export("csv", path="result.csv") # output: eigenvalue table
+# Your quantum pipeline reads like a recipe
+result = (PipeSchrod(m1=1.4495, m2=1.4495)
+    >> Cornell(alpha=0.5317, b=0.1497)
+    >> Grid(N=200, rmax=20.0)
+    >> Solve("FGH")
+    >> Plot("dashboard")
+    >> Export("csv", path="charmonium.csv")
 )
 ```
 
+> **💡 How to read `>>`:** Read the `>>` operator as **"pipe to"** or **"then"**. For example, the code above reads as: *"Initialize the PipeSchrod system, **then** apply a Cornell Potential, **then** attach a Grid, **then** Solve it utilizing FGH..."*
+
 ---
 
-## Installation
+## 🌟 Why PipeSchrod?
 
+### **Readability First**
+```python
+# ❌ Traditional Logic: Nested definitions across dozens of lines
+import numpy as np
+# ... build matrices ...
+# ... implement custom potential ...
+# ... build boundary conditions ...
+# ... retrieve eigensystems ...
+
+# ✅ PipeSchrod: Clear, reproducible, and intuitive execution
+PipeSchrod(m1=4.67, m2=4.67) >> Cornell(0.471, 0.192) >> Grid(N=200, rmax=20) >> Solve('Salpeter')
+```
+
+### **Key Features**
+- 🔗 **Pipe Operator `>>`** - Streamline quantum definitions and model solvers intuitively.
+- 🌌 **Broad Potential Support** - Ready-to-go `Cornell`, `Harmonic`, `Coulomb`, `WoodsSaxon`, and `Morse` limits.
+- 🧮 **Advanced Precision Solvers** - Run Standard Matrix ($O(h^2)$), Matrix Numerov ($O(h^4)$), Fourier Grid Hamiltonian ($O(h^6)$), and Salpeter Relativistic numerical methods.
+- 📊 **Rich Visualization** - Native, automated matplotlib plotting targets inside the pipeline (spectra, wavefunctions, and densities).
+- 💾 **Data Interoperability** - Export natively calculated matrices into datasets via `.json` or `.csv`.
+- ⚡ **Highly Cached Properties** - Rapid property-fetching after solve pipelines.
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 ```bash
-pip install numpy scipy matplotlib rich
-pip install -e .   # from source directory
+# Basic installation via PyPI
+pip install pipeschrod
+
+# Install from source
+git clone https://github.com/Yasser03/PipeSchrod.git
+cd PipeSchrod
+pip install -e .
 ```
 
----
-
-## Methods
-
-| Method | Class | Order | Notes |
-|--------|-------|-------|-------|
-| Standard Matrix | `MatrixSolver` | O(h²) | Tridiagonal, fastest build |
-| Matrix Numerov  | `NumerovSolver`| O(h⁴) | Full B⁻¹A, 4th-order |
-| FGH             | `FGHSolver`    | O(h⁶) | 5-point stencil, fastest convergence |
-| Salpeter        | `SalpeterSolver`| spectral | Relativistic √(m²+p²) |
-
----
-
-## Pipe Steps
-
-| Step | Description |
-|------|-------------|
-| `Cornell(alpha, b, pot_type)` | Coulomb+Linear potential (type 1/2/3) |
-| `Harmonic(omega)`             | Harmonic oscillator |
-| `Coulomb(Z)`                  | Hydrogen-like Coulomb |
-| `WoodsSaxon(V0, R, a)`        | Nuclear shell model |
-| `Morse(De, re, a)`            | Molecular vibrations |
-| `Grid(N, rmax, r0)`           | Set radial grid |
-| `Solve("FGH")`                | Run solver(s) — any of Matrix/Numerov/FGH/Salpeter/"all" |
-| `Compare(n_states)`           | Print side-by-side energy comparison |
-| `Summary(n_states)`           | Print eigenvalue table for active result |
-| `Plot("dashboard")`           | Generate figure(s) |
-| `Export("csv", path=...)`     | Save results to CSV or JSON |
-
----
-
-## Plot Types
-
+### Hello Quantum World!
 ```python
-Plot("dashboard")      # 4-panel overview
-Plot("wavefunctions")  # u(r) grid
-Plot("densities")      # |u(r)|² grid
-Plot("potential")      # V(r) + energy levels
-Plot("spectrum")       # mass spectrum bar chart
-Plot("compare_wf")     # 1S wave function from all methods overlaid
-Plot("compare_E")      # grouped energy bar chart
-Plot("convergence")    # E₁ vs N
-Plot("sensitivity")    # E₁ vs α or b
-Plot("all")            # every figure above
-```
+from pipeschrod import PipeSchrod
+from pipeschrod.steps import Harmonic, Grid, Solve, Plot
 
----
-
-## Recipes
-
-### All four solvers in one chain
-
-```python
-(
-    PipeSchrod(m1=1.4495, m2=1.4495)
-    >> Cornell(alpha=0.5317, b=0.1497)
-    >> Grid(N=200, rmax=20.0)
-    >> Solve("all")
-    >> Compare()
-    >> Plot("compare_E", "compare_wf", save="./figures")
-    >> Export("csv_compare", path="comparison.csv")
-)
-```
-
-### Reuse a base pipe
-
-```python
-base = (
-    PipeSchrod(m1=1.4495, m2=1.4495)
-    >> Cornell(alpha=0.5317, b=0.1497)
-    >> Grid(N=200, rmax=20.0)
+# A simple Harmonic Oscillator pipeline
+oscillator = (
+    PipeSchrod(m1=1.0)
+    >> Harmonic(omega=1.0)
+    >> Grid(N=200, rmax=10.0)
+    >> Solve("Matrix", "Numerov") # Run two solvers sequentially
+    >> Plot("wavefunctions")      # Graph the resulting states
 )
 
-fgh_result  = base >> Solve("FGH")
-sal_result  = base >> Solve("Salpeter")
-# base is unchanged — >> creates a new object every time
-```
-
-### Bottomonium
-
-```python
-(
-    PipeSchrod(m1=4.67, m2=4.67)
-    >> Cornell(alpha=0.471, b=0.192)
-    >> Grid(N=200, rmax=20.0)
-    >> Solve("FGH", "Salpeter")
-    >> Compare()
-)
-```
-
-### Access results
-
-```python
-pipe   = base >> Solve("FGH")
-result = pipe.result                    # primary SchrodResult
-print(result.bound_energies)           # array of eigenvalues [GeV]
-print(result.binding_energies_mev)     # B.E. = (E - 2m) * 1000 [MeV]
-print(result.mean_radius(0))           # <r> for 1S [GeV⁻¹]
-
-multi = base >> Solve("Matrix", "FGH")
-print(multi["Matrix"].bound_energies[0])   # 3.04248 GeV
-print(multi["FGH"].bound_energies[0])      # 3.04911 GeV
+print(oscillator.result.bound_energies[:3])
+# [0.5, 1.5, 2.5]
 ```
 
 ---
 
-## SchrodResult Properties
+## 📚 Core Concepts
+
+### The Pipe Operator `>>`
+The Pipe allows you to define configurations on the fly without modifying base templates, generating unique executions quickly and repeatedly:
 
 ```python
-res.bound_energies          # [GeV]   — eigenvalues below threshold
-res.binding_energies_mev    # [MeV]   — (E - 2m) * 1000
-res.bound_psi               # array   — normalised wave functions
-res.bound_prob              # array   — |u(r)|²
-res.n_bound                 # int     — number of bound states
-res.node_count(n)           # int     — nodes in nth state
-res.mean_radius(n)          # float   — ⟨r⟩ [GeV⁻¹]
-res.rms_radius(n)           # float   — √⟨r²⟩ [GeV⁻¹]
-res.state_label(n)          # str     — e.g. "1S", "2P"
-res.summary_dict()          # dict    — all data as plain dict
+# Define baseline environment
+environment = PipeSchrod(m1=1.4495) >> Grid(N=200, rmax=20.0)
+
+# Branch multiple specific scenarios without rewriting initial components
+result_harmonic = environment >> Harmonic(1.0) >> Solve("FGH")
+result_coulomb  = environment >> Coulomb(1.0) >> Solve("FGH")
 ```
+
+### Core Verbs
+
+| Verb | Purpose | Example |
+|------|---------|---------|
+| `PipeSchrod()` | Origin Initialization | `PipeSchrod(m1=1.44, m2=1.44)` |
+| `Cornell()` | Set Potential | `>> Cornell(alpha=0.5, b=0.1)` |
+| `Grid()` | Configure Grid Map | `>> Grid(N=200, rmax=20.0)` |
+| `Solve()` | Apply Solvers | `>> Solve("FGH", "Salpeter")` |
+| `Summary()` | Print Output | `>> Summary(n_states=5)` |
+| `Plot()` | Visual Dashboard | `>> Plot("dashboard", "spectrum")` |
+| `Compare()` | Solver Differences | `>> Compare()` |
+| `Export()` | Save results | `>> Export("json", path="data.json")` |
+
+> *For a full overview of verb arguments and potential functions, see the [API Reference](API_REFERENCE.md)*
 
 ---
 
-## Presets
+## 📖 Related Projects
 
-```python
-# Charmonium:   m=1.4495, α=0.5317, b=0.1497
-# Bottomonium:  m=4.67,   α=0.471,  b=0.192
-# P-wave:       PipeSchrod(m1=1.4495, m2=1.4495, L=1) >> Cornell(pot_type=2)
-```
+PipeSchrod is part of the **Pipe** ecosystem emphasizing readable, pipeline-centric processing:
+- [PipeFrame](https://github.com/Yasser03/pipeframe) - DataFrame manipulation using python pipes.
+- PipePlotly - Grammar-of-graphics charting using python pipes.
+- PipeScrape - Structural web scraping using python pipes.
+
+---
+
+## 📈 Roadmap
+
+### Current (v0.1.0)
+- ✅ Standard non-relativistic solvers (Matrix, Numerov, FGH)
+- ✅ Spinless Salpeter
+- ✅ Matplotlib auto-dashboard capabilities
+- ✅ 5 native potential models
+
+### Upcoming (v0.2.0)
+- [ ] Direct Plotly integration for interactive charts.
+- [ ] Real-time UI controls and widgets directly natively attached to output models.
+- [ ] Distributed batch solving for massive variable sweeps.

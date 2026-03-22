@@ -119,8 +119,8 @@ result_coulomb  = environment >> Coulomb(1.0) >> Solve("FGH")
 
 PipeSchrod is part of the **Pipe** ecosystem emphasizing readable, pipeline-centric processing:
 - [PipeFrame](https://github.com/Yasser03/pipeframe) - DataFrame manipulation using python pipes.
-- PipePlotly - Grammar-of-graphics charting using python pipes.
-- PipeScrape - Structural web scraping using python pipes.
+- [PipePlotly](https://github.com/Yasser03/pipeplotly) - Grammar-of-graphics charting using python pipes.
+- [PipeScrape](https://github.com/Yasser03/pipescraper) - Structural web scraping using python pipes.
 
 ---
 

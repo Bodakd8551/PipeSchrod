@@ -278,6 +278,21 @@ PipeSchrod is part of the **Pipe** ecosystem emphasizing readable, pipeline-cent
 
 ---
 
+## 📝 How to Cite
+
+If you use PipeSchrod in your research or educational materials, please cite it as follows:
+
+```bibtex
+@software{pipeschrod,
+  author = {Mustafa, Yasser},
+  title = {PipeSchrod: Pipe Your Quantum Mechanics Naturally},
+  url = {https://github.com/Yasser03/PipeSchrod},
+  year = {2026}
+}
+```
+
+---
+
 ## 🌟 Star History
 If PipeSchrod helps your research or calculations, please consider giving it a star! ⭐
 

@@ -122,12 +122,17 @@ PipeSchrod comes with several built-in physical potentials, each implemented as 
 ### `Cornell`
 Creates a Cornell potential, widely used in quarkonium models: $V(r) = - \frac{4\alpha}{3r} + br$
 ```python
-# Create a charmonium system using the Cornell potential
-PipeSchrod(m1=1.44) >> Cornell(alpha=0.5317, b=0.1497, pot_type=1)
+# Create a charmonium system using the Cornell potential with spin-orbit coupling
+PipeSchrod(m1=1.44) >> Cornell(alpha=0.5317, b=0.1497, pot_type=3, S=1, J=1)
 ```
 - **`alpha`** *(float)*: Strong coupling constant.
 - **`b`** *(float)*: String tension parameter.
-- **`pot_type`** *(int)*: Defines variants of the Coulomb and linear term combinations.
+- **`pot_type`** *(int)*: Defines variants of the potential interactions:
+  - `1`: Standard Coulomb + Linear (default).
+  - `2`: Type 1 + Gaussian-smeared hyperfine interactions.
+  - `3`: Type 2 + Spin-orbit coupling + Tensor force.
+- **`sigma`** *(float)*: Gaussian smearing parameter for hyperfine terms (used in `pot_type >= 2`).
+- **`S`, `J`** *(int)*: Total spin and total angular momentum quantum numbers (used in `pot_type >= 3`).
 
 ### `Harmonic`
 Applies a generic Harmonic Oscillator potential: $V(r) = \frac{1}{2} m \omega^2 r^2$

@@ -136,3 +136,20 @@ PipeSchrod is part of the **Pipe** ecosystem emphasizing readable, pipeline-cent
 - [ ] Direct Plotly integration for interactive charts.
 - [ ] Real-time UI controls and widgets directly natively attached to output models.
 - [ ] Distributed batch solving for massive variable sweeps.
+
+---
+
+## 👨‍💻 Author
+**Dr. Yasser Mustafa**
+
+*AI & Data Science Specialist | Theoretical Physics PhD*
+
+- 🎓 PhD in Theoretical Nuclear Physics
+- 💼 10+ years in production AI/ML systems
+- 🔬 48+ research publications
+- 🏢 Experience: Government (Abu Dhabi), Media (Track24), Recruitment (Reed), Energy (ADNOC)
+- 📍 Based in Newcastle Upon Tyne, UK
+- ✉️ yasser.mustafan@gmail.com
+- 🔗 [LinkedIn](https://www.linkedin.com/in/yasser-mustafa-phd-72886344/) | [GitHub](https://github.com/Yasser03)
+
+**PipeSchrod** was born from the need for a more intuitive, pipe-based approach to defining and solving quantum mechanical bound-state systems, combining the analytical rigor of numerical solvers with the elegance of modern functional programming interfaces.

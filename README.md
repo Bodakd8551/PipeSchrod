@@ -248,6 +248,7 @@ PipeSchrod adds minimal overhead to complex mathematical arrays while dramatical
 ## 🎓 Learning Resources
 - **[Tutorial Notebook](tutorial.ipynb)** - A complete, hands-on walkthrough exposing every verb.
 - **[API Reference](API_REFERENCE.md)** - Detailed core documentation for all variables and potential models.
+- **[Theoretical Details](pipeschrod_medium_article.md)** - Contains details on the theoretical part of the matrix methods.
 - **[Examples](examples/)** - More advanced usage templates.
 
 ---

@@ -32,7 +32,7 @@ from .result    import SchrodResult
 from .plotter   import SchrodPlotter
 from .reporter  import SchrodReporter
 
-__version__ = "1.1.0"
+__version__ = "1.1.5"
 __author__  = "Dr. Yasser Mustafa"
 
 __all__ = [

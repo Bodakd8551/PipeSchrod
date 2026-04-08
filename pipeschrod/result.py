@@ -7,7 +7,6 @@ derived properties (binding energies, node counts, radii, etc.).
 
 from __future__ import annotations
 import numpy as np
-from scipy.integrate import trapezoid as trapz
 from dataclasses import dataclass, field
 from typing import List
 
@@ -115,11 +114,11 @@ class SchrodResult:
 
     def mean_radius(self, n: int) -> float:
         u2 = self.bound_psi[n] ** 2
-        return float(trapz(self.r * u2, self.r))
+        return float(np.sum(self.r * u2) * self.h)
 
     def rms_radius(self, n: int) -> float:
         u2 = self.bound_psi[n] ** 2
-        return float(np.sqrt(trapz(self.r**2 * u2, self.r)))
+        return float(np.sqrt(np.sum(self.r**2 * u2) * self.h))
 
     def psi_at_origin(self, n: int) -> float:
         u0, r0 = self.bound_psi[n, 0], self.r[0]

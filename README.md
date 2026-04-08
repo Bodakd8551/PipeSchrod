@@ -55,13 +55,17 @@ PipeSchrod(m1=4.67, m2=4.67) >> Cornell(0.471, 0.192) >> Grid(N=200, rmax=20) >>
 
 ### Installation
 ```bash
-# Basic installation via PyPI
+# Recommended: Install directly from PyPI
 pip install pipeschrod
 
-# Install from source
-git clone https://github.com/Yasser03/PipeSchrod.git
-cd PipeSchrod
-pip install -e .
+# Or using uv for lightning fast setup
+uv pip install pipeschrod
+```
+
+### Native CLI
+Once installed, you can launch the **PipeSchrod Lab** dashboard from anywhere using the built-in command:
+```bash
+pipeschrod-lab
 ```
 
 ### Hello Quantum World!
@@ -310,22 +314,24 @@ If PipeSchrod helps your research or calculations, please consider giving it a s
 
 ## 📈 Roadmap
 
-### Current (v0.1.0)
+### Current (v1.1.0)
+- ✅ Modern PyPI Package structure (`pyproject.toml`)
+- ✅ Native CLI tool: `pipeschrod-lab`
 - ✅ Standard non-relativistic solvers (Matrix, Numerov, FGH)
 - ✅ Spinless Salpeter
 - ✅ Matplotlib auto-dashboard capabilities
 - ✅ 5 native potential models
 
-### Upcoming (v0.2.0)
+### Upcoming (v1.2.0)
 - [ ] Direct Plotly integration for interactive charts.
-- [x] Real-time UI controls and widgets natively attached to output models. (Completed in v0.1.1)
 - [ ] Distributed batch solving for massive variable sweeps.
+- [ ] Expanded potential library (Hulthén, Yukaua).
 
 ## ⚛️ Interactive Lab
 
 Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
 
-- **Launch**: Simply run the `run_lab.bat` file in the root directory.
+- **Launch**: Open your terminal and run `pipeschrod-lab`.
 - **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
 
 ---

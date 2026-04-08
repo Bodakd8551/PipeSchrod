@@ -308,8 +308,15 @@ If PipeSchrod helps your research or calculations, please consider giving it a s
 
 ### Upcoming (v0.2.0)
 - [ ] Direct Plotly integration for interactive charts.
-- [ ] Real-time UI controls and widgets natively attached to output models.
+- [x] Real-time UI controls and widgets natively attached to output models. (Completed in v0.1.1)
 - [ ] Distributed batch solving for massive variable sweeps.
+
+## ⚛️ Interactive Lab
+
+Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
+
+- **Launch**: Simply run the `run_lab.bat` file in the root directory.
+- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
 
 ---
 

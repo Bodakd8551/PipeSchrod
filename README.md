@@ -44,7 +44,7 @@ PipeSchrod(m1=4.67, m2=4.67) >> Cornell(0.471, 0.192) >> Grid(N=200, rmax=20) >>
 ### **Key Features**
 - 🔗 **Pipe Operator `>>`** - Streamline quantum definitions and model solvers intuitively.
 - 🌌 **Broad Potential Support** - Ready-to-go `Cornell`, `Harmonic`, `Coulomb`, `WoodsSaxon`, and `Morse` limits.
-- 🧮 **Advanced Precision Solvers** - Run Standard Matrix ($O(h^2)$), Matrix Numerov ($O(h^4)$), Fourier Grid Hamiltonian ($O(h^6)$), and Salpeter Relativistic numerical methods.
+- 🧮 **Advanced Precision Solvers** - Run Standard Matrix ($\mathcal{O}(h^2)$), Matrix Numerov ($\mathcal{O}(h^4)$), Fourier Grid Hamiltonian ($\mathcal{O}(h^6)$), and Salpeter Relativistic numerical methods.
 - 📊 **Rich Visualization** - Native, automated matplotlib plotting targets inside the pipeline (spectra, wavefunctions, and densities).
 - 💾 **Data Interoperability** - Export natively calculated matrices into datasets via `.json` or `.csv`.
 - ⚡ **Highly Cached Properties** - Rapid property-fetching after solve pipelines.
@@ -232,9 +232,9 @@ result_2 = base_environment >> Cornell(alpha=0.471, b=0.192) >> Solve("FGH")
 PipeSchrod adds minimal overhead to complex mathematical arrays while dramatically improving code readability:
 
 **Benchmarks:**
-- **Matrix Solver**: Fastest build execution, relies precisely on $O(h^2)$ step increments.
-- **Numerov Solver**: Deep integration $O(h^4)$ bounds reducing standard node drifts.
-- **Fourier Grid Hamiltonian (FGH)**: Superior convergence parameters using a 3-point or 5-point $O(h^6)$ spectral analysis matrix.
+- **Matrix Solver**: Fastest build execution, relies precisely on $\mathcal{O}(h^2)$ step increments.
+- **Numerov Solver**: Deep integration $\mathcal{O}(h^4)$ bounds reducing standard node drifts.
+- **Fourier Grid Hamiltonian (FGH)**: Superior convergence parameters using a 3-point or 5-point $\mathcal{O}(h^6)$ spectral analysis matrix.
 - **Spinless Salpeter**: Relativistic momentum computations calculated through discrete pseudo-spectral array layouts over heavy quark masses.
 
 **Why the syntax overhead is worth it:**

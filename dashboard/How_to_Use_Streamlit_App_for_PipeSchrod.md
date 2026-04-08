@@ -31,6 +31,12 @@ Run the following command in your terminal from the repository root:
 python -m streamlit run dashboard/streamlit_app.py
 ```
 
+### 3. Native CLI (Recommended after installation)
+If you have installed the package via `pip install -e .` or simply `pip install pipeschrod`, you can launch the lab from anywhere using:
+```bash
+pipeschrod-lab
+```
+
 > [!IMPORTANT]
 > If you encounter a `ModuleNotFoundError: No module named 'streamlit.cli'`, always use the `python -m streamlit` prefix as shown above.
 
@@ -53,9 +59,9 @@ Choose from five industry-standard physical models:
 
 ### 3. **Numerical Solvers**
 Select one or more advanced numerical methods to compute the spectrum:
-*   **FGH (Fourier Grid Hamiltonian)**: High-precision spectral method ($O(h^6)$).
-*   **Matrix**: Fast $O(h^2)$ matrix discretization.
-*   **Numerov**: High-accuracy $O(h^4)$ integration method.
+*   **FGH (Fourier Grid Hamiltonian)**: High-precision spectral method ($\mathcal{O}(h^6)$).
+*   **Matrix**: Fast $\mathcal{O}(h^2)$ matrix discretization.
+*   **Numerov**: High-accuracy $\mathcal{O}(h^4)$ integration method.
 *   **Spinless Salpeter**: Relativistic treatment for heavy systems.
 
 ### 4. **Visualization Suite**

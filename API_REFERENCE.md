@@ -85,9 +85,9 @@ Constructs and evaluates the Hamiltonian across the grid.
 Solve(*methods)
 ```
 - **`*methods`** *(str)*: A sequence of solver names. Available options:
-  - `"Matrix"` (Standard Matrix method, $O(h^2)$)
-  - `"Numerov"` (Matrix Numerov, $O(h^4)$)
-  - `"FGH"` (Fourier Grid Hamiltonian, $O(h^6)$, highly convergent)
+  - `"Matrix"` (Standard Matrix method, $\mathcal{O}(h^2)$)
+  - `"Numerov"` (Matrix Numerov, $\mathcal{O}(h^4)$)
+  - `"FGH"` (Fourier Grid Hamiltonian, $\mathcal{O}(h^6)$, highly convergent)
   - `"Salpeter"` (Spinless Salpeter solving $\sqrt{m^2 + p^2}$)
   - `"all"` (Solves using all available methods in parallel)
 

@@ -1,30 +1,28 @@
-# Byte-compiled / optimized / DLL files
+﻿# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class
+*.class
 
 # Distribution / packaging
-build/
 dist/
+build/
 *.egg-info/
+*.egg
 .eggs/
-pipeschrod.egg-info/
-pipeschrod_output/
-
-# Unit test / coverage reports
-.pytest_cache/
-.coverage
-htmlcov/
 
 # Environments
-.env
-.venv
-env/
+.venv/
 venv/
 ENV/
-env.bak/
-venv.bak/
+env/
+.uv/
 
-# IDEs
-.vscode/
-.idea/
+# Local configuration
+.env
+.DS_Store
+
+# PipeSchrod output
+pipeschrod_output/
+*.csv
+*.json
+*.png

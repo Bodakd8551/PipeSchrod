@@ -266,6 +266,13 @@ PipeSchrod adds minimal overhead to complex mathematical arrays while dramatical
 - **[Theoretical Details](pipeschrod_medium_article.md)** - Contains details on the theoretical part of the matrix methods.
 - **[Examples](examples/)** - More advanced usage templates.
 
+## ⚛️ Interactive Lab
+
+Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
+
+- **Launch**: Open your terminal and run `pipeschrod-lab`.
+- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
+
 ---
 
 ## 🤝 Contributing
@@ -327,13 +334,6 @@ If PipeSchrod helps your research or calculations, please consider giving it a s
 - [ ] Direct Plotly integration for interactive charts.
 - [ ] Distributed batch solving for massive variable sweeps.
 - [ ] Expanded potential library (Hulthén, Yukaua).
-
-## ⚛️ Interactive Lab
-
-Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
-
-- **Launch**: Open your terminal and run `pipeschrod-lab`.
-- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
 
 ---
 

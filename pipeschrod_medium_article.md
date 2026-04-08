@@ -36,14 +36,15 @@ from pipeschrod.steps import Cornell, Grid, Solve, Compare, Plot, Export
  >> Export("csv", path="charmonium.csv"))
 ```
 
-The benchmark system throughout is **charmonium** — the cc̄ meson family. The J/ψ was discovered in 1974 (the "November Revolution" of particle physics), its spectrum is precisely known from experiment, and its canonical Cornell potential parameters give a compact, well-defined numerical problem. Parameters used: `$\alpha = 0.5317$`, `$b = 0.1497 \text{ GeV}^2$`, `m₁ = m₂ = 1.4495 GeV`.
+The benchmark system throughout is **charmonium** — the cc̄ meson family. The J/ψ was discovered in 1974 (the "November Revolution" of particle physics), its spectrum is precisely known from experiment, and its canonical Cornell potential parameters give a compact, well-defined numerical problem. Parameters used: α = 0.5317, b = 0.1497 GeV², m₁ = m₂ = 1.4495 GeV.
 
 <h2 id="physics">02 The Radial Schrödinger Equation</h2>
 
 For two particles in a spherically symmetric potential V(r), writing ψ = [u(r)/r]·Yₗᵐ separates the angular parts exactly, leaving a one-dimensional eigenvalue problem for u(r):
 
 $$-\frac{\hbar^2}{2\mu} \frac{d^2u}{dr^2} + \left[ \frac{\hbar^2 L(L+1)}{2\mu r^2} + V(r) \right] u(r) = E \cdot u(r)$$
-*Eq.(1) — Radial Schrödinger equation. $\mu = m_1m_2/(m_1+m_2)$ is the reduced mass.*
+
+*Eq.(1) — Radial Schrödinger equation. μ = m₁m₂/(m₁+m₂) is the reduced mass.*
 
 Boundary conditions u(0)=0 and u(∞)=0 quantise the energy into a discrete spectrum E₁ < E₂ < E₃… The term L(L+1)/r² is the centrifugal barrier: L=0 gives S-states, L=1 gives P-states, and so on. All four PipeSchrod methods solve exactly this equation, differing only in how they represent the kinetic energy operator d²/dr² as a matrix.
 
@@ -51,7 +52,8 @@ Boundary conditions u(0)=0 and u(∞)=0 quantise the energy into a discrete spec
 
 The Cornell potential combines the one-gluon-exchange Coulomb interaction (perturbative QCD at short range) with a linearly rising confinement term (the colour flux tube at long range):
 
-$$V(r) = -\frac{4\alpha}{3r} + b \cdot r$$
+$$V(r) = -\frac{4\alpha}{3r} + br$$
+
 *Eq.(2) — Cornell potential. The 4/3 is the SU(3) colour factor for a quark–antiquark singlet.*
 
 *Figure 1. The Cornell potential V(r) with α=0.5317, b=0.1497 GeV², and the first four S-state energy levels shown as dashed lines. The competing Coulomb (short range) and linear confinement (long range) terms create the characteristic funnel shape.*
@@ -85,7 +87,7 @@ all_pipe  = base >> Solve("all")        # all four solvers
 
 The most direct approach. The second derivative is approximated using the classic three-point finite difference stencil:
 
-$$\frac{d^2u}{dr^2} \approx \frac{u(r+h) - 2u(r) + u(r-h)}{h^2} $\mathcal{O}(h^2)$
+$$\frac{d^2u}{dr^2} \approx \frac{u(r+h) - 2u(r) + u(r-h)}{h^2} + O(h²)$$
 
 This transforms the kinetic energy operator into a sparse tridiagonal matrix. The potential V(r) and centrifugal barrier are simply diagonal matrices added on top.
 
@@ -96,19 +98,19 @@ pipe = base >> Solve("Matrix")
 
 ### The Matrix Structure
 For a grid of N points, the Hamiltonian H is an N×N matrix. Let T₀ = ℏ² / (2μh²):
-- **Diagonal:** $H_{i,i} = 2T_0 + V(r_i) + \frac{\hbar^2 L(L+1)}{2\mu r_i^2}$
-- **Off-diagonal:** $H_{i,i\pm1} = -T_0$
+- **Diagonal:** Hᵢ,ᵢ = 2T₀ + V(rᵢ) + [L(L+1)] / [2μrᵢ²]
+- **Off-diagonal:** Hᵢ,ᵢ±₁ = -T₀
 
 **Pros:** Trivially simple to implement; highly sparse matrix allows very fast exact diagonalisation for massive grids using `scipy.sparse.linalg.eigsh`.
-**Cons:** Error scales slowly as $\mathcal{O}(h^2)$. To get high accuracy, you need a very fine grid (large N), which increases computation time despite sparsity.
+**Cons:** Error scales slowly as O(h²). To get high accuracy, you need a very fine grid (large N), which increases computation time despite sparsity.
 
 <h2 id="numerov">05 Method 2 — Matrix Numerov</h2>
 
-The Numerov algorithm was originally developed for solving second-order ODEs step-by-step (shooting method). In the 1990s, it was recast into a direct matrix eigenvalue approach. It achieves $\mathcal{O}(h^4)$ accuracy using the same three-point stencil, but applying a clever tridiagonal smoothing operator B to the entire equation.
+The Numerov algorithm was originally developed for solving second-order ODEs step-by-step (shooting method). In the 1990s, it was recast into a direct matrix eigenvalue approach. It achieves O(h⁴) accuracy using the same three-point stencil, but applying a clever tridiagonal smoothing operator B to the entire equation.
 
 We rewrite the Schrödinger equation as `d²u/dr² = Q(r)u(r)`, where `Q(r) = (2μ/ℏ²)[V(r) + L(L+1)/2μr² - E]`. The Numerov approximation is:
 
-$$\frac{u(r+h) - 2u(r) + u(r-h)}{h^2} = \frac{h^2}{12} \left[ Q(r+h)u(r+h) + 10Q(r)u(r) + Q(r-h)u(r-h) \right] $\mathcal{O}(h^6)$
+$$\frac{u(r+h) - 2u(r) + u(r-h)}{h^2} = \frac{h^2}{12} \left[ Q(r+h)u(r+h) + 10Q(r)u(r) + Q(r-h)u(r-h) \right] + O(h⁶)$$
 
 ### Implementation in PipeSchrod
 ```python
@@ -127,7 +129,7 @@ where A and B are both tridiagonal N×N matrices:
   `B[i,i] = 5/6`
   `B[i,i±1] = 1/12`
 
-**Pros:** Exceptional $\mathcal{O}(h^4)$ accuracy. Reaches high precision with far fewer grid points than the standard method. Still tridiagonal (banded).
+**Pros:** Exceptional O(h⁴) accuracy. Reaches high precision with far fewer grid points than the standard method. Still tridiagonal (banded).
 **Cons:** Requires solving a generalised eigenvalue problem, which is slightly slower per N than standard diagonalisation.
 
 <h2 id="fgh">06 Method 3 — Fourier Grid Hamiltonian (FGH)</h2>
@@ -145,10 +147,10 @@ pipe = base >> Solve("FGH")
 Unlike previous methods, FGH generates a **dense** matrix. The potential is diagonal `H[i,i] = V(rᵢ)`, but the kinetic energy T connects every grid point to every other point:
 
 $$T_{i,j} = \frac{\hbar^2}{2\mu h^2} \cdot \frac{(-1)^{i-j}}{\sin^2(\pi(i-j)/N)}$$
-*(For $i=j$, the diagonal is $\frac{\hbar^2 \pi^2}{6\mu h^2}$)*
+*(For i=j, the diagonal is ħ²π² / 6μh²)*
 
 **Pros:** Tremendously accurate — essentially exact for functions that can be represented by the discrete Fourier basis. Often requires the smallest grid N of any method.
-**Cons:** The matrix is completely dense (N×N non-zero elements). Memory scales as $\mathcal{O}(N^2)$, diagonalisation time scales as $\mathcal{O}(N^3)$. Impractical for N > 5000 on standard machines.
+**Cons:** The matrix is completely dense (N×N non-zero elements). Memory scales as 𝒪(N²), diagonalisation time scales as 𝒪(N³). Impractical for N > 5000 on standard machines.
 
 <h2 id="salpeter">07 Method 4 — Spinless Salpeter</h2>
 
@@ -164,7 +166,7 @@ pipe = base >> Solve("Salpeter")
 ```
 
 ### The Matrix Structure
-PipeSchrod implements the Lucha-Schöberl algorithm. We generate the momentum grid pₖ = k·Δp, construct the diagonal matrix `T[k,k] = √(pₖ² + m₁²) + √(pₖ² + m₂²)`, and apply the transformation `S·T·Sᵀ` where S is the sine-transform matrix connecting r-space to p-space. This generates a dense, purely relativistic kinetic energy matrix in coordinate space, to which we add the diagonal V(r).
+PipeSchrod implements the Lucha–Schöberl algorithm. We generate the momentum grid pₖ = k·Δp, construct the diagonal matrix T[k,k] = √(pₖ² + m₁²) + √(pₖ² + m₂²), and apply the transformation S·T·Sᵀ where S is the sine-transform matrix connecting r-space to p-space. This generates a dense, purely relativistic kinetic energy matrix in coordinate space, to which we add the diagonal V(r).
 
 **Pros:** Computes full relativistic kinematics naturally. The only practical numerical method for the Salpeter equation.
 **Cons:** Dense matrix scaling issues (same as FGH). Slightly more overhead to build the transformation matrices.

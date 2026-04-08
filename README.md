@@ -44,7 +44,7 @@ PipeSchrod(m1=4.67, m2=4.67) >> Cornell(0.471, 0.192) >> Grid(N=200, rmax=20) >>
 ### **Key Features**
 - 🔗 **Pipe Operator `>>`** - Streamline quantum definitions and model solvers intuitively.
 - 🌌 **Broad Potential Support** - Ready-to-go `Cornell`, `Harmonic`, `Coulomb`, `WoodsSaxon`, and `Morse` limits.
-- 🧮 **Advanced Precision Solvers** - Run Standard Matrix ($\mathcal{O}(h^2)$), Matrix Numerov ($\mathcal{O}(h^4)$), Fourier Grid Hamiltonian ($\mathcal{O}(h^6)$), and Salpeter Relativistic numerical methods.
+- 🧮 **Advanced Precision Solvers** - Run Standard Matrix (𝒪(h²)), Matrix Numerov (𝒪(h⁴)), Fourier Grid Hamiltonian (𝒪(h⁶)), and Salpeter Relativistic numerical methods.
 - 📊 **Rich Visualization** - Native, automated matplotlib plotting targets inside the pipeline (spectra, wavefunctions, and densities).
 - 💾 **Data Interoperability** - Export natively calculated matrices into datasets via `.json` or `.csv`.
 - ⚡ **Highly Cached Properties** - Rapid property-fetching after solve pipelines.
@@ -120,7 +120,9 @@ result_coulomb  = environment >> Coulomb(1.0) >> Solve("FGH")
 PipeSchrod comes with several built-in physical potentials, each implemented as an independent pipe step. Here is how to configure and use them:
 
 ### `Cornell`
-Creates a Cornell potential, widely used in quarkonium models: $V(r) = - \frac{4\alpha}{3r} + br$
+Creates a Cornell potential, widely used in quarkonium models:
+
+$$V(r) = - \frac{4\alpha}{3r} + br$$
 ```python
 # Create a charmonium system using the Cornell potential with spin-orbit coupling
 PipeSchrod(m1=1.44) >> Cornell(alpha=0.5317, b=0.1497, pot_type=3, S=1, J=1)
@@ -135,14 +137,18 @@ PipeSchrod(m1=1.44) >> Cornell(alpha=0.5317, b=0.1497, pot_type=3, S=1, J=1)
 - **`S`, `J`** *(int)*: Total spin and total angular momentum quantum numbers (used in `pot_type >= 3`).
 
 ### `Harmonic`
-Applies a generic Harmonic Oscillator potential: $V(r) = \frac{1}{2} m \omega^2 r^2$
+Applies a generic Harmonic Oscillator potential:
+
+$$V(r) = \frac{1}{2} m \omega^2 r^2$$
 ```python
 PipeSchrod(m1=1.0) >> Harmonic(omega=1.0)
 ```
 - **`omega`** *(float)*: Angular frequency of the oscillator.
 
 ### `Coulomb`
-Applies a strictly Coulombic potential target (Hydrogen-like): $V(r) = - \frac{Z}{r}$
+Applies a strictly Coulombic potential target (Hydrogen-like):
+
+$$V(r) = - \frac{Z}{r}$$
 ```python
 # Hydrogen-like system
 PipeSchrod(m1=0.511) >> Coulomb(Z=1.0)
@@ -150,7 +156,9 @@ PipeSchrod(m1=0.511) >> Coulomb(Z=1.0)
 - **`Z`** *(float)*: Effective atomic number or generic charge coefficient.
 
 ### `WoodsSaxon`
-A standard phenomenological model for nucleons: $V(r) = \frac{-V_0}{1 + \exp((r - R)/a)}$
+A standard phenomenological model for nucleons:
+
+$$V(r) = \frac{-V_0}{1 + \exp((r - R)/a)}$$
 ```python
 PipeSchrod(m1=938.0) >> WoodsSaxon(V0=50.0, R=1.2, a=0.65)
 ```
@@ -159,7 +167,9 @@ PipeSchrod(m1=938.0) >> WoodsSaxon(V0=50.0, R=1.2, a=0.65)
 - **`a`** *(float)*: Surface thickness modifier.
 
 ### `Morse`
-An accurate model for diatomic molecular vibrations: $V(r) = D_e (1 - e^{-a(r-r_e)})^2$
+An accurate model for diatomic molecular vibrations:
+
+$$V(r) = D_e (1 - e^{-a(r-r_e)})^2$$
 ```python
 PipeSchrod(m1=1.0) >> Morse(De=1.0, re=1.0, a=1.0)
 ```
@@ -232,9 +242,9 @@ result_2 = base_environment >> Cornell(alpha=0.471, b=0.192) >> Solve("FGH")
 PipeSchrod adds minimal overhead to complex mathematical arrays while dramatically improving code readability:
 
 **Benchmarks:**
-- **Matrix Solver**: Fastest build execution, relies precisely on $\mathcal{O}(h^2)$ step increments.
-- **Numerov Solver**: Deep integration $\mathcal{O}(h^4)$ bounds reducing standard node drifts.
-- **Fourier Grid Hamiltonian (FGH)**: Superior convergence parameters using a 3-point or 5-point $\mathcal{O}(h^6)$ spectral analysis matrix.
+- **Matrix Solver**: Fastest build execution, relies precisely on 𝒪(h²) step increments.
+- **Numerov Solver**: Deep integration 𝒪(h⁴) bounds reducing standard node drifts.
+- **Fourier Grid Hamiltonian (FGH)**: Superior convergence parameters using a 3-point or 5-point 𝒪(h⁶) spectral analysis matrix.
 - **Spinless Salpeter**: Relativistic momentum computations calculated through discrete pseudo-spectral array layouts over heavy quark masses.
 
 **Why the syntax overhead is worth it:**

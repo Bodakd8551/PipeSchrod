@@ -46,12 +46,12 @@ pipeschrod-lab
 
 ### 1. **System Configuration**
 Set the physical properties of your quantum system in the sidebar:
-*   **Masses ($m_1, m_2$):** Define the constituent masses (e.g., $1.4495\text{ GeV}$ for Charm quarks).
-*   **Quantum Numbers:** Adjust Orbital ($L$), Spin ($S$), and total angular momentum ($J$).
+*   **Masses (m₁, m₂):** Define the constituent masses (e.g., 1.4495 GeV for Charm quarks).
+*   **Quantum Numbers:** Adjust Orbital (L), Spin (S), and total angular momentum (J).
 
 ### 2. **Potential Model Selection**
 Choose from five industry-standard physical models:
-*   **Cornell**: Standard funnel potential for quarkonium simulations ($V = -4\alpha/3r + br$).
+*   **Cornell**: Standard funnel potential for quarkonium simulations (V = -4α/3r + br).
 *   **Harmonic Oscillator**: Exactly solvable benchmark model.
 *   **Coulomb**: Hydrogen-like systems.
 *   **Woods-Saxon**: Phenomenological nuclear well model.
@@ -59,9 +59,9 @@ Choose from five industry-standard physical models:
 
 ### 3. **Numerical Solvers**
 Select one or more advanced numerical methods to compute the spectrum:
-*   **FGH (Fourier Grid Hamiltonian)**: High-precision spectral method ($\mathcal{O}(h^6)$).
-*   **Matrix**: Fast $\mathcal{O}(h^2)$ matrix discretization.
-*   **Numerov**: High-accuracy $\mathcal{O}(h^4)$ integration method.
+*   **FGH (Fourier Grid Hamiltonian)**: High-precision spectral method (𝒪(h⁶)).
+*   **Matrix**: Fast 𝒪(h²) matrix discretization.
+*   **Numerov**: High-accuracy 𝒪(h⁴) integration method.
 *   **Spinless Salpeter**: Relativistic treatment for heavy systems.
 
 ### 4. **Visualization Suite**
@@ -81,7 +81,7 @@ Download your simulation results for external use:
 
 ## 💡 Pro Tips
 *   **Grid Accuracy**: For deep potentials or highly excited states, increase the **Number of Points (N)** to 300-500.
-*   **Convergence**: Use the **Comparison** tab to check if different solvers agree on the ground-state energy; if they differ significantly, try increasing $N$ or $R_{max}$.
+*   **Convergence**: Use the **Comparison** tab to check if different solvers agree on the ground-state energy; if they differ significantly, try increasing N or Rₘₐₓ.
 
 ---
 

@@ -2,9 +2,10 @@
 
 **Pipe Your Quantum Mechanics Naturally**
 
-[![PyPI version](https://img.shields.io/pypi/v/pipeschrod.svg)](https://pypi.org/project/pipeschrod/)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://img.shields.io/pypi/v/pipeschrod?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/pipeschrod?color=green&logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![Python version](https://img.shields.io/pypi/pyversions/pipeschrod?color=blue&logo=python&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![License: MIT](https://img.shields.io/pypi/l/pipeschrod?color=yellow&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 
 An intuitive, readable, and modern Python library for defining, solving, and visualizing 1D Schrödinger and Salpeter equations. Designed for nuclear physicists, particle physicists, and quantum mechanics students, PipeSchrod implements a clear pipeline syntax (`>>`) inspired by standard data workflows but applied to rigorous physical systems.
 

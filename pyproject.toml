@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pipeschrod"
-version = "1.1.1"
+version = "1.1.2"
 authors = [
   { name="Dr. Yasser Mustafa", email="yasser.mustafan@gmail.com" },
 ]
@@ -37,7 +37,7 @@ pipeschrod-lab = "pipeschrod.cli:run_dashboard"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pipeschrod*"]
+include = ["pipeschrod", "pipeschrod.*"]
 
 [tool.setuptools.package-data]
 "pipeschrod.dashboard" = ["*.md"]

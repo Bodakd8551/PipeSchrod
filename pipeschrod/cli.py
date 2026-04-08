@@ -11,8 +11,8 @@ def run_dashboard():
     try:
         # Try to find the dashboard file relative to this script
         # This handles both local 'pip install -e .' and PyPI installation
-        pkg_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        app_path = os.path.join(pkg_root, "dashboard", "streamlit_app.py")
+        pkg_base = os.path.dirname(os.path.abspath(__file__))
+        app_path = os.path.join(pkg_base, "dashboard", "streamlit_app.py")
         
         if not os.path.exists(app_path):
             print(f"Error: Dashboard file not found at {app_path}")

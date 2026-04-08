@@ -2,7 +2,7 @@
 
 **Pipe Your Quantum Mechanics Naturally**
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.0-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.1-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![Python version](https://img.shields.io/badge/python-3.8+-blue?logo=python&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/status-active-green?logo=github&logoColor=white)](https://github.com/Yasser03/pipeschrod)
@@ -271,7 +271,7 @@ PipeSchrod adds minimal overhead to complex mathematical arrays while dramatical
 Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
 
 - **Launch**: Open your terminal and run `pipeschrod-lab`.
-- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
+- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](pipeschrod/dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
 
 ---
 
@@ -322,9 +322,10 @@ If PipeSchrod helps your research or calculations, please consider giving it a s
 
 ## 📈 Roadmap
 
-### Current (v1.1.0)
+### Current (v1.1.1)
+- ✅ Dashboard Bugfix Release: Corrected CLI path resolution
+- ✅ Integrated Dashboard into the core package structure
 - ✅ Modern PyPI Package structure (`pyproject.toml`)
-- ✅ Native CLI tool: `pipeschrod-lab`
 - ✅ Standard non-relativistic solvers (Matrix, Numerov, FGH)
 - ✅ Spinless Salpeter
 - ✅ Matplotlib auto-dashboard capabilities

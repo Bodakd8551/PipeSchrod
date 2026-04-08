@@ -1,5 +1,11 @@
 # ⚛️ PipeSchrod Interactive Lab: User Guide
 
+### 🌐 Cloud Access (No Setup Required)
+If you just want to explore PipeSchrod without installing anything locally, launch the hosted lab here:
+👉 **[Launch PipeSchrod Lab Online](https://pipeschrod.streamlit.app/)**
+
+---
+
 Welcome to the official documentation for the **PipeSchrod Streamlit App**. This interactive dashboard allows physicists, students, and researchers to visualize and solve quantum bound-state problems naturally using the PipeSchrod ecosystem.
 
 ---
@@ -9,11 +15,11 @@ Welcome to the official documentation for the **PipeSchrod Streamlit App**. This
 Before running the lab, ensure you have the necessary dependencies installed:
 
 ```bash
-# Install the core library and dashboard requirements
-pip install -r requirements.txt
+# Recommended: Install the production package
+pip install pipeschrod
 
-# Or manually install the essentials
-pip install streamlit pandas matplotlib pipeschrod
+# Or for development (from the repo root)
+pip install -e .
 ```
 
 ---
@@ -22,19 +28,20 @@ pip install streamlit pandas matplotlib pipeschrod
 
 There are two primary ways to start the Interactive Lab:
 
-### 1. The Quick Start (Recommended for Windows)
-Double-click the **`run_lab.bat`** file in the root directory. This script automatically handles environment paths and bypasses common Streamlit CLI versioning errors.
-
-### 2. Manual Terminal Launch
-Run the following command in your terminal from the repository root:
-```bash
-python -m streamlit run dashboard/streamlit_app.py
-```
-
-### 3. Native CLI (Recommended after installation)
-If you have installed the package via `pip install -e .` or simply `pip install pipeschrod`, you can launch the lab from anywhere using:
+### 1. Native CLI (Recommended)
+This is the standard and fastest method. Once installed via `pip` or `uv`, simply run:
 ```bash
 pipeschrod-lab
+```
+
+### 2. Manual Terminal Launch
+If you are running directly from source without installing, run the following from the root directory:
+```bash
+uv run python -m pipeschrod.cli
+```
+*Or using standard python:*
+```bash
+python -m pipeschrod.cli
 ```
 
 > [!IMPORTANT]
@@ -89,3 +96,7 @@ Download your simulation results for external use:
 The PipeSchrod Interactive Lab is designed to make quantum mechanics exploration intuitive and visual. 
 
 **Happy Computing!** ⚛️
+
+---
+
+**Created by**: [Dr. Yasser Mustafa](https://www.linkedin.com/in/yasser-mustafa-ai/)

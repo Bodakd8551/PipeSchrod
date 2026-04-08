@@ -2,7 +2,7 @@
 
 **Pipe Your Quantum Mechanics Naturally**
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.3-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.4-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![Python version](https://img.shields.io/badge/python-3.8+-blue?logo=python&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/status-active-green?logo=github&logoColor=white)](https://github.com/Yasser03/pipeschrod)
@@ -268,10 +268,18 @@ PipeSchrod adds minimal overhead to complex mathematical arrays while dramatical
 
 ## ⚛️ Interactive Lab
 
-Explore your quantum systems visually with the built-in **PipeSchrod Lab**. Adjust masses, potentials, and solvers in real-time and see immediate results.
+The **PipeSchrod Interactive Lab** allows you to investigate quantum systems visually and see real-time spectroscopic results.
 
-- **Launch**: Open your terminal and run `pipeschrod-lab`.
-- **Documentation**: For a detailed guide on features, check the [Interactive Lab Instructions](pipeschrod/dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
+### 🌐 Cloud Access (No Setup Required)
+For researchers and students who prefer not to install Python locally, the lab is hosted on the Streamlit Cloud:
+👉 **[Launch PipeSchrod Lab Online](https://pipeschrod.streamlit.app/)**
+
+### 💻 Local Execution
+If you have the package installed, you can launch the lab from any terminal:
+```bash
+pipeschrod-lab
+```
+For more details, see the [Interactive Lab Instructions](pipeschrod/dashboard/How_to_Use_Streamlit_App_for_PipeSchrod.md).
 
 ---
 
@@ -349,7 +357,7 @@ If PipeSchrod helps your research or calculations, please consider giving it a s
 - 🏢 Experience: Government (Abu Dhabi), Media (Track24), Recruitment (Reed), Energy (ADNOC)
 - 📍 Based in Newcastle Upon Tyne, UK
 - ✉️ yasser.mustafan@gmail.com
-- 🔗 [LinkedIn](https://www.linkedin.com/in/yasser-mustafa-phd-72886344/) | [GitHub](https://github.com/Yasser03)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/yasser-mustafa-ai/) | [GitHub](https://github.com/Yasser03)
 
 **PipeSchrod** was born from the need for a more intuitive, pipe-based approach to defining and solving quantum mechanical bound-state systems, combining the analytical rigor of numerical solvers with the elegance of modern functional programming interfaces.
 

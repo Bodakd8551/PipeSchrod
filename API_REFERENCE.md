@@ -2,6 +2,9 @@
 
 Welcome to the comprehensive API Reference for `PipeSchrod`, the pipeline-based Python library for solving 1D Schrödinger and Salpeter equations.
 
+> [!TIP]
+> **No installation required?** Explore the **PipeSchrod Lab** directly in your browser: [Launch Online](https://pipeschrod.streamlit.app/)
+
 ## Core Module: Base Initialization
 
 ### `PipeSchrod`
@@ -152,3 +155,7 @@ Export(fmt, path=None)
   - `"json"` (Export results property map as JSON)
   - `"csv_compare"` (Merge multi-solver results directly to CSV matrix)
 - **`path`** *(str)*: Target path filename (e.g. `"results.csv"`).
+
+---
+
+**Created by**: [Dr. Yasser Mustafa](https://www.linkedin.com/in/yasser-mustafa-ai/)

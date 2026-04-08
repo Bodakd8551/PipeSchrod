@@ -108,9 +108,28 @@ selected_solvers = st.sidebar.multiselect("Select Methods", available_solvers, d
 
 # --- MAIN PAGE CONTENT ---
 st.title("PipeSchrod ⚛️ Simulation Dashboard")
-st.markdown("""
-Welcome to the **PipeSchrod Lab**. This dashboard allows you to investigate quantum bound states 
-for various physical potentials using the pipeline syntax.
+
+st.markdown(f"""
+Welcome to the **PipeSchrod Lab**. This interactive environment allows you to define, solve, and visualize 1D Schrödinger and Salpeter equations using the modern **pipeline syntax** (`>>`).
+
+### 📦 About PipeSchrod
+**PipeSchrod** is an intuitive Python library designed for nuclear physicists, particle physicists, and quantum mechanics students. It streamlines the workflow from defining a physical system to retrieving spectroscopic observables (mass spectra, wavefunctions, and radii) through a readable and reproducible interface.
+
+*   **GitHub**: [Yasser03/PipeSchrod](https://github.com/Yasser03/PipeSchrod)
+*   **PyPI**: [pipeschrod](https://pypi.org/project/pipeschrod/)
+*   **Created by**: [Dr. Yasser Mustafa](https://www.linkedin.com/in/yasser-mustafa-ai/)
+
+---
+
+### 🚀 Installation
+To use PipeSchrod in your own projects, run:
+```bash
+pip install pipeschrod
+```
+*Or using uv for faster setup:*
+```bash
+uv pip install pipeschrod
+```
 """)
 
 if not selected_solvers:

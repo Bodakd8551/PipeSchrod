@@ -68,6 +68,10 @@ All four methods replace the continuous r with a uniform grid of N=200 points fr
 ### PipeFrame · PipePlotly · PipeScrape · PipeSchrod
 PipeSchrod extends the Pipe* ecosystem to quantum physics. Every step of a calculation — defining the system, choosing a potential, setting the grid, running solvers, plotting, exporting — is a `>>` step on a `PipeSchrod` object.
 
+> [!TIP]
+> **Try it now!** You can explore the **PipeSchrod Lab** directly in your browser without installing anything:  
+> [Launch Interactive Lab](https://pipeschrod.streamlit.app/)
+
 The `>>` operator is **immutable**: each step returns a new object, leaving the original unchanged. This means you can define a base pipe once and branch it into multiple solver chains without recomputing the potential or grid:
 
 ```python
@@ -231,4 +235,4 @@ Numerical solution of the Schrödinger equation is no longer the domain of Fortr
 <hr class="rule">
 
 **PipeSchrod Repository:** [github.com/Yasser03/pipeschrod](https://github.com/Yasser03/pipeschrod)
-**Author:** Dr. Yasser Mustafa
+**Author:** [Dr. Yasser Mustafa](https://www.linkedin.com/in/yasser-mustafa-ai/)

@@ -1,7 +1,6 @@
 import os
 import subprocess
 import sys
-import pkg_resources
 
 def run_dashboard():
     """
@@ -18,7 +17,7 @@ def run_dashboard():
             print(f"Error: Dashboard file not found at {app_path}")
             sys.exit(1)
             
-        print(f"⚛️  Launching PipeSchrod Interactive Lab...")
+        print(f"Launching PipeSchrod Interactive Lab...")
         
         # Invoke streamlit as a module
         cmd = [sys.executable, "-m", "streamlit", "run", app_path]

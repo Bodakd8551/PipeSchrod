@@ -2,7 +2,7 @@
 
 **Pipe Your Quantum Mechanics Naturally**
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.2-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.3-blue?logo=pypi&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![Python version](https://img.shields.io/badge/python-3.8+-blue?logo=python&logoColor=white)](https://pypi.org/project/pipeschrod/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/status-active-green?logo=github&logoColor=white)](https://github.com/Yasser03/pipeschrod)

